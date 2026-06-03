@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - MathMastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">∑</span>
+                <span class="logo-text">MathMastery</span>
+            </div>
+            <div class="navbar-auth">
+                <button class="btn-theme-toggle" id="themeToggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <!-- Difficulty Selection -->
+            <div id="difficultySelection" class="difficulty-selection glass-effect">
+                <h2>Select Difficulty Level</h2>
+                <div class="difficulty-grid">
+                    <button class="difficulty-card easy" onclick="selectDifficulty('easy')">
+                        <span class="difficulty-name">Easy</span>
+                        <span class="difficulty-points">+10 pts</span>
+                    </button>
+                    <button class="difficulty-card medium" onclick="selectDifficulty('medium')">
+                        <span class="difficulty-name">Medium</span>
+                        <span class="difficulty-points">+20 pts</span>
+                    </button>
+                    <button class="difficulty-card hard" onclick="selectDifficulty('hard')">
+                        <span class="difficulty-name">Hard</span>
+                        <span class="difficulty-points">+40 pts</span>
+                    </button>
+                    <button class="difficulty-card expert" onclick="selectDifficulty('expert')">
+                        <span class="difficulty-name">Expert</span>
+                        <span class="difficulty-points">+70 pts</span>
+                    </button>
+                    <button class="difficulty-card master" onclick="selectDifficulty('master')">
+                        <span class="difficulty-name">Master</span>
+                        <span class="difficulty-points">+100 pts</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" class="quiz-container hidden">
+                <!-- Quiz Header -->
+                <div class="quiz-header glass-effect">
+                    <div class="quiz-progress">
+                        <span id="questionNumber">Question 1/10</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quizProgress" style="width: 10%"></div>
+                        </div>
+                    </div>
+                    <div class="quiz-timer">
+                        <span class="timer-label">Time:</span>
+                        <span class="timer-value" id="timer">30s</span>
+                    </div>
+                </div>
+
+                <!-- Question Display -->
+                <div class="question-container glass-effect">
+                    <div class="question-text" id="questionText">
+                        Question will appear here
+                    </div>
+                </div>
+
+                <!-- Answer Options -->
+                <div class="answers-container">
+                    <div id="answersGrid" class="answers-grid">
+                        <!-- Answers will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Quiz Controls -->
+                <div class="quiz-controls">
+                    <button class="btn btn-secondary" onclick="quitQuiz()">Quit</button>
+                    <button class="btn btn-primary" id="submitBtn" onclick="submitAnswer()">Submit Answer</button>
+                </div>
+
+                <!-- Feedback -->
+                <div id="feedbackContainer" class="feedback hidden glass-effect">
+                    <div id="feedbackContent"></div>
+                </div>
+            </div>
+
+            <!-- Quiz Results -->
+            <div id="resultsContainer" class="results-container hidden glass-effect">
+                <div class="results-header">
+                    <h2>Quiz Complete! 🎉</h2>
+                </div>
+
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <span class="result-label">Score</span>
+                        <span class="result-value" id="finalScore">0</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Correct</span>
+                        <span class="result-value" id="finalCorrect">0</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Accuracy</span>
+                        <span class="result-value" id="finalAccuracy">0%</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Points</span>
+                        <span class="result-value" id="earnedPoints">0</span>
+                    </div>
+                </div>
+
+                <div class="results-bonus" id="bonusSection" style="display: none;">
+                    <span class="bonus-icon">⭐</span>
+                    <h3>Bonus Earned!</h3>
+                    <p id="bonusText">Streak bonus: +50 points</p>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn btn-primary" onclick="retakeQuiz()">Try Again</button>
+                    <button class="btn btn-secondary" onclick="goToDashboard()">Back to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

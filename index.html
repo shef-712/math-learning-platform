@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMastery - Master Mathematics One Level at a Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">∑</span>
+                <span class="logo-text">MathMastery</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#levels" class="nav-link">Levels</a></li>
+                <li><a href="#stats" class="nav-link">Statistics</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <button class="btn-theme-toggle" id="themeToggle">🌙</button>
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-symbols">
+            <span class="symbol">+</span>
+            <span class="symbol">−</span>
+            <span class="symbol">×</span>
+            <span class="symbol">÷</span>
+            <span class="symbol">π</span>
+            <span class="symbol">√</span>
+            <span class="symbol">=</span>
+            <span class="symbol">∫</span>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Master Mathematics<br><span class="gradient-text">One Level at a Time</span></h1>
+            <p class="hero-description">
+                Improve your math skills through interactive challenges and progress from beginner to expert with our scientifically designed learning system.
+            </p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-primary btn-large">Start Learning</a>
+                <button class="btn btn-secondary btn-large" onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Learn More</button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <div class="card-content">
+                    <span class="card-number">92%</span>
+                    <span class="card-label">Accuracy</span>
+                </div>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-content">
+                    <span class="card-number">1,240</span>
+                    <span class="card-label">Points</span>
+                </div>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-content">
+                    <span class="card-number">Level 5</span>
+                    <span class="card-label">Expert</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose MathMastery?</h2>
+            <p class="section-subtitle">Comprehensive features designed for effective learning</p>
+            
+            <div class="features-grid">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your improvement with detailed statistics and performance analytics.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🎯</div>
+                    <h3>5 Difficulty Levels</h3>
+                    <p>From beginner to master, progress at your own pace with carefully designed levels.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Earn Achievements</h3>
+                    <p>Unlock badges and achievements as you reach milestones in your learning journey.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Daily Challenges</h3>
+                    <p>Tackle fresh challenges daily and earn bonus XP to accelerate your progress.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Expert Content</h3>
+                    <p>Questions crafted by educators covering topics from basics to advanced mathematics.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">👥</div>
+                    <h3>Compete with Others</h3>
+                    <p>Challenge yourself on the leaderboard and see how you rank against other learners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Difficulty Levels Section -->
+    <section id="levels" class="levels">
+        <div class="container">
+            <h2 class="section-title">Our Difficulty Levels</h2>
+            <p class="section-subtitle">Choose your challenge and advance your skills</p>
+            
+            <div class="levels-grid">
+                <div class="level-card glass-effect">
+                    <div class="level-badge easy">Easy</div>
+                    <h3>Beginner</h3>
+                    <div class="level-topics">
+                        <span>Addition</span>
+                        <span>Subtraction</span>
+                        <span>Multiplication</span>
+                        <span>Division</span>
+                    </div>
+                    <div class="level-reward">
+                        <span class="reward-label">Reward:</span>
+                        <span class="reward-points">+10 Points</span>
+                    </div>
+                </div>
+
+                <div class="level-card glass-effect">
+                    <div class="level-badge medium">Medium</div>
+                    <h3>Learner</h3>
+                    <div class="level-topics">
+                        <span>Fractions</span>
+                        <span>Percentages</span>
+                        <span>Decimals</span>
+                        <span>Basic Algebra</span>
+                    </div>
+                    <div class="level-reward">
+                        <span class="reward-label">Reward:</span>
+                        <span class="reward-points">+20 Points</span>
+                    </div>
+                </div>
+
+                <div class="level-card glass-effect">
+                    <div class="level-badge hard">Hard</div>
+                    <h3>Advanced</h3>
+                    <div class="level-topics">
+                        <span>Equations</span>
+                        <span>Geometry</span>
+                        <span>Trigonometry</span>
+                        <span>Functions</span>
+                    </div>
+                    <div class="level-reward">
+                        <span class="reward-label">Reward:</span>
+                        <span class="reward-points">+40 Points</span>
+                    </div>
+                </div>
+
+                <div class="level-card glass-effect">
+                    <div class="level-badge expert">Expert</div>
+                    <h3>Expert</h3>
+                    <div class="level-topics">
+                        <span>Calculus</span>
+                        <span>Probability</span>
+                        <span>Statistics</span>
+                        <span>Advanced Functions</span>
+                    </div>
+                    <div class="level-reward">
+                        <span class="reward-label">Reward:</span>
+                        <span class="reward-points">+70 Points</span>
+                    </div>
+                </div>
+
+                <div class="level-card glass-effect">
+                    <div class="level-badge master">Master</div>
+                    <h3>Master</h3>
+                    <div class="level-topics">
+                        <span>Olympiad Problems</span>
+                        <span>Advanced Logic</span>
+                        <span>Complex Algebra</span>
+                        <span>Mathematical Proofs</span>
+                    </div>
+                    <div class="level-reward">
+                        <span class="reward-label">Reward:</span>
+                        <span class="reward-points">+100 Points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="statistics">
+        <div class="container">
+            <h2 class="section-title">Our Community Impact</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card glass-effect">
+                    <h3 class="stat-number">10,000+</h3>
+                    <p class="stat-label">Questions</p>
+                </div>
+                <div class="stat-card glass-effect">
+                    <h3 class="stat-number">5</h3>
+                    <p class="stat-label">Difficulty Levels</p>
+                </div>
+                <div class="stat-card glass-effect">
+                    <h3 class="stat-number">5,000+</h3>
+                    <p class="stat-label">Active Students</p>
+                </div>
+                <div class="stat-card glass-effect">
+                    <h3 class="stat-number">98%</h3>
+                    <p class="stat-label">Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+            
+            <form class="contact-form glass-effect" id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>MathMastery</h4>
+                    <p>Making mathematics learning engaging and effective for everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="leaderboard.html">Leaderboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MathMastery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

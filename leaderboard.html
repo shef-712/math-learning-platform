@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - MathMastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">∑</span>
+                <span class="logo-text">MathMastery</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="leaderboard.html" class="nav-link active">Leaderboard</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <button class="btn-theme-toggle" id="themeToggle">🌙</button>
+                <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section">
+        <div class="container">
+            <div class="leaderboard-header">
+                <h1>🏆 Global Leaderboard</h1>
+                <p>Compete with thousands of learners worldwide</p>
+            </div>
+
+            <!-- Your Ranking -->
+            <div class="your-ranking glass-effect">
+                <div class="ranking-content">
+                    <div class="ranking-number" id="yourRankPosition">#--</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name" id="yourRankName">You</div>
+                        <div class="ranking-score" id="yourRankScore">0 points</div>
+                    </div>
+                </div>
+                <div class="ranking-level" id="yourRankLevel">Level 1</div>
+            </div>
+
+            <!-- Leaderboard Table -->
+            <div class="leaderboard-container glass-effect">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Level</th>
+                            <th>Points</th>
+                            <th>Questions</th>
+                            <th>Accuracy</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">Loading leaderboard...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyLeaderboard" class="empty-state glass-effect" style="display: none;">
+                <p>Start solving questions to appear on the leaderboard!</p>
+                <a href="quiz.html" class="btn btn-primary">Start Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

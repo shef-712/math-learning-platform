@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MathMastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">∑</span>
+                <span class="logo-text">MathMastery</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <button class="btn-theme-toggle" id="themeToggle">🌙</button>
+                <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <section class="dashboard">
+        <div class="container">
+            <!-- User Header -->
+            <div class="user-header glass-effect">
+                <div class="user-avatar-section">
+                    <div class="user-avatar" id="userAvatar">👤</div>
+                    <div class="user-info">
+                        <h1 id="userName">Student Name</h1>
+                        <p id="userUsername">@username</p>
+                    </div>
+                </div>
+                <a href="profile.html" class="btn btn-secondary">Edit Profile</a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-row">
+                <div class="stat-box glass-effect">
+                    <div class="stat-label">Current Level</div>
+                    <div class="stat-value" id="currentLevel">1</div>
+                    <div class="stat-sublabel">Beginner</div>
+                </div>
+                <div class="stat-box glass-effect">
+                    <div class="stat-label">Total Points</div>
+                    <div class="stat-value" id="totalPoints">0</div>
+                    <div class="stat-sublabel">Keep going!</div>
+                </div>
+                <div class="stat-box glass-effect">
+                    <div class="stat-label">Questions Solved</div>
+                    <div class="stat-value" id="questionsSolved">0</div>
+                    <div class="stat-sublabel">Great start!</div>
+                </div>
+                <div class="stat-box glass-effect">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value" id="accuracy">0%</div>
+                    <div class="stat-sublabel">Improving</div>
+                </div>
+            </div>
+
+            <!-- XP Progress Bar -->
+            <div class="progress-section glass-effect">
+                <div class="progress-header">
+                    <h3>Level Progress</h3>
+                    <span id="xpLabel">0 / 100 XP</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="dashboard-grid">
+                <!-- Daily Challenge -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>🎯 Daily Challenge</h2>
+                        <span class="badge" id="dailyBadge">Available</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Complete 5 random questions to earn <strong>+50 XP bonus</strong></p>
+                        <button class="btn btn-primary btn-full" onclick="window.location.href='quiz.html?mode=daily'">Start Challenge</button>
+                    </div>
+                </div>
+
+                <!-- Continue Learning -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>📚 Continue Learning</h2>
+                    </div>
+                    <div class="card-content">
+                        <div id="difficultyButtons" class="difficulty-buttons">
+                            <button class="difficulty-btn easy" onclick="startQuiz('easy')">Easy</button>
+                            <button class="difficulty-btn medium" onclick="startQuiz('medium')">Medium</button>
+                            <button class="difficulty-btn hard" onclick="startQuiz('hard')">Hard</button>
+                            <button class="difficulty-btn expert" onclick="startQuiz('expert')">Expert</button>
+                            <button class="difficulty-btn master" onclick="startQuiz('master')">Master</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Rank -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>🏆 Your Rank</h2>
+                    </div>
+                    <div class="card-content rank-content">
+                        <div class="rank-display">
+                            <div class="rank-number" id="userRank">#--</div>
+                        </div>
+                        <p id="rankInfo">Join the competition!</p>
+                        <a href="leaderboard.html" class="btn btn-secondary">View Leaderboard</a>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>🎖️ Recent Achievements</h2>
+                    </div>
+                    <div class="card-content achievements-preview">
+                        <div id="achievementsContainer">
+                            <p class="placeholder">Achievements will appear here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>📊 Quick Stats</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-item">
+                            <span>Correct Answers:</span>
+                            <strong id="correctAnswers">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Wrong Answers:</span>
+                            <strong id="wrongAnswers">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Current Streak:</span>
+                            <strong id="currentStreak">0 🔥</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div class="dashboard-card glass-effect">
+                    <div class="card-header">
+                        <h2>💡 Pro Tips</h2>
+                    </div>
+                    <div class="card-content">
+                        <ul class="tips-list">
+                            <li>Complete daily challenges for bonus XP</li>
+                            <li>Build streaks to multiply your points</li>
+                            <li>Progress through difficulty levels gradually</li>
+                            <li>Check the leaderboard for motivation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

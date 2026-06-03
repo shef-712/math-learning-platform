@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MathMastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">∑</span>
+                <span class="logo-text">MathMastery</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                <li><a href="profile.html" class="nav-link active">Profile</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <button class="btn-theme-toggle" id="themeToggle">🌙</button>
+                <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-grid">
+                <!-- Profile Card -->
+                <div class="profile-card glass-effect">
+                    <div class="profile-header">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar" id="profileAvatar">👤</div>
+                            <label class="avatar-upload">
+                                <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" style="display: none;">
+                                <span class="upload-icon">📷</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="profileName">Full Name</label>
+                            <input type="text" id="profileName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileUsername">Username</label>
+                            <input type="text" id="profileUsername" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileEmail">Email Address</label>
+                            <input type="email" id="profileEmail" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="changePasswordCheckbox" onchange="togglePasswordChange()">
+                                Change Password
+                            </label>
+                        </div>
+
+                        <div id="passwordChangeSection" class="hidden">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="currentPassword" required>
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('currentPassword', 'toggleIcon1')">
+                                        <span id="toggleIcon1">👁️</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="newPassword" required>
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('newPassword', 'toggleIcon2')">
+                                        <span id="toggleIcon2">👁️</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmNewPassword" required>
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('confirmNewPassword', 'toggleIcon3')">
+                                        <span id="toggleIcon3">👁️</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Statistics Card -->
+                <div class="statistics-card glass-effect">
+                    <h3>Your Statistics</h3>
+                    
+                    <div class="stat-row">
+                        <span class="stat-name">Total Questions Solved</span>
+                        <span class="stat-val" id="statTotalQuestions">0</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Correct Answers</span>
+                        <span class="stat-val correct" id="statCorrectAnswers">0</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Wrong Answers</span>
+                        <span class="stat-val wrong" id="statWrongAnswers">0</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Overall Accuracy</span>
+                        <span class="stat-val" id="statAccuracy">0%</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Highest Score</span>
+                        <span class="stat-val" id="statHighestScore">0</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Current Level</span>
+                        <span class="stat-val" id="statLevel">1</span>
+                    </div>
+
+                    <div class="stat-row">
+                        <span class="stat-name">Total Points</span>
+                        <span class="stat-val" id="statTotalPoints">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="achievements-section glass-effect">
+                <h2>🏆 Your Achievements</h2>
+                <div class="achievements-grid" id="achievementsGrid">
+                    <!-- Achievements will be populated here -->
+                </div>
+            </div>
+
+            <!-- Badges Section -->
+            <div class="badges-section glass-effect">
+                <h2>🎖️ Your Badges</h2>
+                <div class="badges-container" id="badgesContainer">
+                    <!-- Badges will be populated here -->
+                </div>
+            </div>
+
+            <!-- Account Actions -->
+            <div class="account-actions glass-effect">
+                <h3>Account Settings</h3>
+                <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content glass-effect">
+            <h2>Confirm Action</h2>
+            <p id="confirmMessage">Are you sure?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-danger" id="confirmBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
