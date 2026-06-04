@@ -92,7 +92,7 @@ function checkAuthStatus() {
     });
 
     // Hide auth buttons if logged in
-    if (currentUser && window.location.pathname.includes('.html') && !window.location.pathname.includes('dashboard') && !window.location.pathname.includes('quiz') && !window.location.pathname.includes('profile') && !window.location.pathname.includes('leaderboard')) {
+    if (currentUser && window.location.pathname.includes('.html') && !window.location.pathname.includes('dashboard') && !window.location.pathname.includes('quiz') && !window.location.pathname.includes('profile')) {
         const navAuth = document.querySelector('.navbar-auth');
         if (navAuth) {
             navAuth.innerHTML = `
@@ -440,6 +440,15 @@ function checkDailyChallenge() {
 // QUIZ SYSTEM
 // ============================================================
 
+// Difficulty-based timing configuration
+const DIFFICULTY_TIMINGS = {
+    easy: 60,      // 60 seconds for easy questions
+    medium: 45,    // 45 seconds for medium questions
+    hard: 40,      // 40 seconds for hard questions
+    expert: 30,    // 30 seconds for expert questions
+    master: 20     // 20 seconds for master questions
+};
+
 let currentQuiz = {
     difficulty: null,
     questions: [],
@@ -522,6 +531,8 @@ function selectDifficulty(difficulty) {
     currentQuiz.answers = [];
     currentQuiz.selectedAnswer = null;
     currentQuiz.startTime = Date.now();
+    // Set time per question based on difficulty level
+    currentQuiz.timePerQuestion = DIFFICULTY_TIMINGS[difficulty];
 
     // Hide selection, show quiz
     document.getElementById('difficultySelection').classList.add('hidden');
